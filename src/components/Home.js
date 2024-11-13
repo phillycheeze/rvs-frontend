@@ -1,5 +1,5 @@
-import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import React from "react";
+import { Box, Heading } from "@chakra-ui/react";
 
 const Home = () => {
   return (
@@ -8,7 +8,7 @@ const Home = () => {
         This is a home page. Nothing too exciting going on here.
       </Heading>
     </Box>
-  )
-}
+  );
+};
 
 export default Home;

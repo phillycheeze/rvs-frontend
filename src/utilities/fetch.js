@@ -1,7 +1,7 @@
 export async function getRequest(path) {
   const response = await fetch(`http://localhost:3001/api/v1/${path}`);
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error("Network response was not ok");
   }
   const result = await response.json();
   return result;
@@ -16,7 +16,7 @@ export async function postRequest(path, body) {
     },
   });
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error("Network response was not ok");
   }
   const result = await response.json();
   return result;
@@ -31,7 +31,7 @@ export async function patchRequest(path, body) {
     },
   });
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+    throw new Error("Network response was not ok");
   }
   const result = await response.json();
   return result;

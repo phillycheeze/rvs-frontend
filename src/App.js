@@ -1,12 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from './components/ui/provider';
-import Admin from './components/Admin';
-import Home from './components/Home';
-import Registration2 from './components/Registration2';
-import Registration3 from './components/Registration3';
-import UserTable from './components/UserTable';
-import UserRegistrationForm from './components/UserRegistration';
-import Layout from './components/Layout';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Provider } from "./components/ui/provider";
+import Admin from "./components/Admin";
+import Home from "./components/Home";
+import Registration2 from "./components/Registration2";
+import Registration3 from "./components/Registration3";
+import UserTable from "./components/UserTable";
+import UserRegistrationForm from "./components/UserRegistration";
+import Layout from "./components/Layout";
 
 function App(Component, pageProps) {
   return (

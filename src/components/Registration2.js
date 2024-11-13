@@ -1,11 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { Box, Button, HStack } from '@chakra-ui/react';
-import { ProgressBar, ProgressRoot, ProgressLabel, ProgressValueText } from "./ui/progress"
-import WorkflowAboutMe from './WorkflowAboutMe';
-import WorkflowAddress from './WorkflowAddress';
-import WorkflowBirthday from './WorkflowBirthday';
-import { getRequest, patchRequest } from '../utilities/fetch';
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { Box, Button, HStack } from "@chakra-ui/react";
+import {
+  ProgressBar,
+  ProgressRoot,
+  ProgressLabel,
+  ProgressValueText,
+} from "./ui/progress";
+import WorkflowAboutMe from "./WorkflowAboutMe";
+import WorkflowAddress from "./WorkflowAddress";
+import WorkflowBirthday from "./WorkflowBirthday";
+import { getRequest, patchRequest } from "../utilities/fetch";
 
 const Registration2 = () => {
   const navigate = useNavigate();
@@ -18,28 +23,27 @@ const Registration2 = () => {
         dataRef.current = {
           useAboutMe: false,
           useAddress: false,
-          useBirthday: false
-        }
-        const result = await getRequest('admin/workflow_components');
-        
-        result.workflow_components.forEach(item => {
-          if(item.sort_index == 2)
-          {
-            switch(item.name) {
-              case 'about':
+          useBirthday: false,
+        };
+        const result = await getRequest("admin/workflow_components");
+
+        result.workflow_components.forEach((item) => {
+          if (item.sort_index == 2) {
+            switch (item.name) {
+              case "about":
                 dataRef.current.useAboutMe = true;
                 break;
-              case 'address':
+              case "address":
                 dataRef.current.useAddress = true;
                 break;
-              case 'birthday':
-                dataRef.current.useBirthday = true
+              case "birthday":
+                dataRef.current.useBirthday = true;
                 break;
               default:
                 break;
             }
           }
-        })
+        });
       } finally {
         setLoading(false);
       }
@@ -55,9 +59,9 @@ const Registration2 = () => {
 
     try {
       const result = await patchRequest(`users/${data.id}`, data);
-      navigate('/registration/3');
+      navigate("/registration/3");
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
     }
   };
 
@@ -73,22 +77,26 @@ const Registration2 = () => {
         </HStack>
       </ProgressRoot>
       <form onSubmit={handleSubmit}>
-        <WorkflowAboutMe isNeeded={dataRef.current.useAboutMe} ></WorkflowAboutMe>
-        <WorkflowAddress isNeeded={dataRef.current.useAddress} ></WorkflowAddress>
-        <WorkflowBirthday isNeeded={dataRef.current.useBirthday} ></WorkflowBirthday>
+        <WorkflowAboutMe
+          isNeeded={dataRef.current.useAboutMe}
+        ></WorkflowAboutMe>
+        <WorkflowAddress
+          isNeeded={dataRef.current.useAddress}
+        ></WorkflowAddress>
+        <WorkflowBirthday
+          isNeeded={dataRef.current.useBirthday}
+        ></WorkflowBirthday>
         <Box float="left">
           <Button disabled="true" variant="outline">
             Back
           </Button>
         </Box>
         <Box float="right">
-          <Button type="submit">
-            Continue
-          </Button>
+          <Button type="submit">Continue</Button>
         </Box>
       </form>
     </Box>
-  )
-}
+  );
+};
 
 export default Registration2;
