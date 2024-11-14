@@ -87,7 +87,7 @@ const Registration2 = () => {
           isNeeded={dataRef.current.useBirthday}
         ></WorkflowBirthday>
         <Box float="left">
-          <Button disabled="true" variant="outline">
+          <Button disabled={true} variant="outline">
             Back
           </Button>
         </Box>

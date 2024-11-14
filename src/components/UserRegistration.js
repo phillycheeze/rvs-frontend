@@ -38,11 +38,16 @@ const UserRegistrationForm = () => {
     try {
       const data = await postRequest("users", { ...formData, password });
       setFormData({ ...formData, ["id"]: data.user.id });
+      await new Promise(resolve => setTimeout(resolve, 200));
       navigate("/registration/2");
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
+
+  if(formData.birthday || formData.about || Object.keys(formData.address).length > 0 ){
+    window.location.href = "/registration/2";
+  }
 
   return (
     <Box maxW="sm" mx="auto" pt="3">
