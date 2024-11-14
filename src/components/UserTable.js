@@ -43,7 +43,7 @@ const UserTable = () => {
                 {item.UserAddress?.address_line_1} {item.UserAddress?.city},
                 {item.UserAddress?.state} {item.UserAddress?.zipcode}
               </Table.Cell>
-              <Table.Cell textAlign="end">{item.birthday}</Table.Cell>
+              <Table.Cell textAlign="end">{item.birthday ? new Date(item.birthday).toLocaleDateString("en-US") : ''}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
