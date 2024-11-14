@@ -15,7 +15,8 @@ const WorkflowBirthday = ({ isNeeded }) => {
   }, [data]);
 
   const handleChange = (e) => {
-    setData({ ...data, ["birthday"]: e });
+    const currentData = JSON.parse(localStorage.getItem("currentUser"));
+    setData({ ...currentData, ["birthday"]: e });
   };
 
   if (!isNeeded) {

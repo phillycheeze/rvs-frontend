@@ -13,7 +13,8 @@ const WorkflowAboutMe = ({ isNeeded }) => {
   }, [data]);
 
   const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
+    const currentData = JSON.parse(localStorage.getItem("currentUser"));
+    setData({ ...currentData, [e.target.name]: e.target.value });
   };
 
   if (!isNeeded) {
